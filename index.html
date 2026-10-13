@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<p>Opening messages...</p>
+<a id="l" href="#">Tap here if it did not open</a>
+<script>
+  const p = new URLSearchParams(location.search);
+  const to = p.get('to') || '';
+  const body = p.get('body') || '';
+  const sep = /iPhone|iPad/.test(navigator.userAgent) ? '&' : '?';
+  const url = 'sms:+91' + to + sep + 'body=' + encodeURIComponent(body);
+  document.getElementById('l').href = url;
+  location.href = url;
+</script>
